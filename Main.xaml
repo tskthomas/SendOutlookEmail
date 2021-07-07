@@ -1,6 +1,6 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1208,1062" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1208,1627" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
-    <sco:Collection x:TypeArguments="x:String">
+    <scg:List x:TypeArguments="x:String" Capacity="35">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -36,10 +36,10 @@
       <x:String>UiPath.Mail.Activities</x:String>
       <x:String>UiPath.Mail.Outlook.Activities</x:String>
       <x:String>UiPath.Shared.Activities</x:String>
-    </sco:Collection>
+    </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <sco:Collection x:TypeArguments="AssemblyReference">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="32">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -70,23 +70,23 @@
       <AssemblyReference>System.Memory</AssemblyReference>
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
-    </sco:Collection>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="815,997" sap2010:WorkflowViewState.IdRef="Sequence_3">
+  <Sequence sap:VirtualizedContainerService.HintSize="815,1562" sap2010:WorkflowViewState.IdRef="Sequence_3">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ExcelApplicationScope Password="{x:Null}" AutoSave="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="773,905" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Visible="False" WorkbookPath="C:\UIPath\Hackathon\test.xlsx">
+    <ui:ExcelApplicationScope Password="{x:Null}" AutoSave="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="773,1470" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Visible="False" WorkbookPath="C:\UIPath\Hackathon\test.xlsx">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="739,796" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="739,1361" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="s:String[]" Name="EmailList" />
               <Variable x:TypeArguments="sd:DataTable" Name="EmailTable" />
@@ -96,35 +96,66 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:ExcelReadRange AddHeaders="True" DataTable="[EmailTable]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="697,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" Range="C:C" SheetName="Participant List" />
-            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[EmailTable]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="697,605" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+            <ui:ExcelReadRange Range="{x:Null}" AddHeaders="True" DataTable="[EmailTable]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="697,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="Participant List" />
+            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[EmailTable]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="697,1170" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
               <ui:ForEachRow.Body>
                 <ActivityAction x:TypeArguments="sd:DataRow">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="663,486" sap2010:WorkflowViewState.IdRef="Sequence_1">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="663,1051" sap2010:WorkflowViewState.IdRef="Sequence_1">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="sd:DataTable" Name="RowToMove" />
+                      <Variable x:TypeArguments="sd:DataTable" Name="DataRow1" />
+                    </Sequence.Variables>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <If Condition="[String.IsNullOrWhiteSpace(row(&quot;Email Address&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="621,394" sap2010:WorkflowViewState.IdRef="If_1">
+                    <If Condition="[String.IsNullOrWhiteSpace(row(&quot;Email Address&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="621,236" sap2010:WorkflowViewState.IdRef="If_1">
                       <If.Then>
                         <ui:Break sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Break_1" />
                       </If.Then>
                       <If.Else>
-                        <Sequence sap:VirtualizedContainerService.HintSize="376,237" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                        <Sequence sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_4">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:SendOutlookMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Account="registration@opexcg.com" Body="&lt;html&gt;&lt;p&gt;Terima kasih untuk partisipasi Anda dalam Webinar &amp;ldquo;Journey To Mendix Hackathon 2021&amp;rdquo; pada tanggal 8 Juli 2021, pukul 14.00 WIB. Anda telah terdaftar.&lt;/p&gt;&lt;p&gt;Berikut Zoom link, meeting ID dan Passcode:&lt;/p&gt;&lt;p&gt;&lt;a href='https://us02web.zoom.us/j/85978924355?pwd=MDU2TVNuOEszNkJmWDlTQytzT1lJZz09' target='_blank' rel='noopener noreferrer'&gt;https://us02web.zoom.us/j/85978924355?pwd=MDU2TVNuOEszNkJmWDlTQytzT1lJZz09&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Meeting ID: 859 7892 4355 &lt;br /&gt;Passcode: 194700&lt;/p&gt;&lt;p Class='v1MsoNormal'&gt;Webinar akan dimulai tepat waktu. Mohon agar masuk dalam ruang Zoom 5 menit sebelumnya.&lt;/p&gt;&lt;p class='v1MsoNormal'&gt;Jika anda membutuhkan bantuan atau ingin bertanya lebih lanjut, dapat menghubungi:&lt;/p&gt;&lt;ul&gt;&lt;li class='v1MsoNormal'&gt;&lt;a href='mailto:adonis@opexcg.com'&gt;adonis@opexcg.com&lt;/a&gt;&lt;/li&gt;&lt;li class='v1MsoNormal'&gt;&lt;a href='mailto:thomas@opexcg.com'&gt;thomas@opexcg.com&lt;/a&gt;&lt;/li&gt;&lt;li class='v1MsoNormal'&gt;&lt;a href='mailto:tania@opexcg.com'&gt;tania@opexcg.com&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p Class='v1MsoNormal'&gt;&amp;nbsp;&lt;/p&gt;&lt;p Class='v1MsoNormal'&gt;Terima kasih.&lt;/p&gt;&lt;p Class='v1MsoNormal'&gt;&amp;nbsp;&lt;/p&gt;&lt;p Class='v1MsoNormal'&gt;Salam Sejahtera,&lt;/p&gt;&lt;p Class='v1MsoNormal'&gt;&amp;nbsp;&lt;/p&gt;&lt;p Class='v1MsoNormal'&gt;Opex Consulting Group&lt;/p&gt;&lt;p Class='v1MsoNormal'&gt;https://www.opexcg.com&lt;/p&gt;&lt;p Class='v1MsoNormal'&gt;&amp;nbsp;&lt;/p&gt;&lt;p Class='v1MsoNormal'&gt;&amp;nbsp;&lt;/p&gt;&lt;p Class='v1MsoNormal'&gt;==================&lt;/p&gt;&lt;p Class='v1MsoNormal'&gt;&amp;nbsp;&lt;/p&gt;&lt;p Class='v1MsoNormal'&gt;&amp;nbsp;&lt;/p&gt;&lt;div&gt;&lt;p Class='v1MsoNormal'&gt;&lt;span style='font-family: 'Calibri Light',sans-serif;'&gt;Best Regards,&lt;/span&gt;&lt;/p&gt;&lt;p Class='v1MsoNormal'&gt;&amp;nbsp;&lt;/p&gt;&lt;p Class='v1MsoNormal'&gt;Franklin Kurniawan&lt;/p&gt;&lt;p Class='v1MsoNormal'&gt;&lt;em&gt;&lt;span style='font-size: 10.0pt; color: #767171;'&gt;Managing Partner&lt;/span&gt;&lt;/em&gt;&lt;/p&gt;&lt;p Class='v1MsoNormal'&gt;&lt;strong&gt;&lt;span style='color: #00b0f0;'&gt;Opex Consulting Group&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;&lt;p Class='v1MsoNormal'&gt;&lt;span style='font-size: 10.0pt; color: #767171;'&gt;Singapore &amp;ndash; Indonesia&lt;/span&gt;&lt;/p&gt;&lt;p Class='v1MsoNormal'&gt;&lt;em&gt;&lt;span style='font-size: 4.0pt; font-family: 'Times New Roman',serif;'&gt;&amp;nbsp;&lt;/span&gt;&lt;/em&gt;&lt;/p&gt;&lt;p Class='v1MsoNormal'&gt;&lt;em&gt;&lt;span style='font-size: 8.0pt; font-family: 'Times New Roman',serif;'&gt;Industry 4.0 &amp;ndash; Operational Excellence &amp;ndash; People Development&lt;/span&gt;&lt;/em&gt;&lt;/p&gt;&lt;/div&gt;&lt;/html&gt;" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" Importance="Normal" IsBodyHtml="True" IsDraft="False" Sensitivity="Normal" Subject="Invitation to Mendix Webinar" To="[row(&quot;Email Address&quot;).ToString]">
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                    <If Condition="[String.Equals(row(&quot;Status&quot;).ToString,&quot;Sent&quot;)]" sap:VirtualizedContainerService.HintSize="621,683" sap2010:WorkflowViewState.IdRef="If_2">
+                      <If.Then>
+                        <ui:Continue sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Continue_1" />
+                      </If.Then>
+                      <If.Else>
+                        <Sequence sap:VirtualizedContainerService.HintSize="376,526" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                          <Sequence.Variables>
+                            <Variable x:TypeArguments="x:Int32" Name="RowNumber" />
+                          </Sequence.Variables>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:SendOutlookMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Account="registration@opexcg.com" Body="&lt;html&gt;&lt;p&gt;Terima kasih untuk partisipasi Anda dalam Webinar &amp;ldquo;Journey To Mendix Hackathon 2021&amp;rdquo; pada tanggal 8 Juli 2021, pukul 14.00 WIB. Anda telah terdaftar.&lt;/p&gt;&lt;p&gt;Berikut Zoom link, meeting ID dan Passcode:&lt;/p&gt;&lt;p&gt;&lt;a href='https://us02web.zoom.us/j/85978924355?pwd=MDU2TVNuOEszNkJmWDlTQytzT1lJZz09' target='_blank' rel='noopener noreferrer'&gt;https://us02web.zoom.us/j/85978924355?pwd=MDU2TVNuOEszNkJmWDlTQytzT1lJZz09&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Meeting ID: 859 7892 4355 &lt;br /&gt;Passcode: 194700&lt;/p&gt;&lt;p Class='v1MsoNormal'&gt;Webinar akan dimulai tepat waktu. Mohon agar masuk dalam ruang Zoom 5 menit sebelumnya.&lt;/p&gt;&lt;p class='v1MsoNormal'&gt;Jika anda membutuhkan bantuan atau ingin bertanya lebih lanjut, dapat menghubungi:&lt;/p&gt;&lt;ul&gt;&lt;li class='v1MsoNormal'&gt;&lt;a href='mailto:adonis@opexcg.com'&gt;adonis@opexcg.com&lt;/a&gt;&lt;/li&gt;&lt;li class='v1MsoNormal'&gt;&lt;a href='mailto:thomas@opexcg.com'&gt;thomas@opexcg.com&lt;/a&gt;&lt;/li&gt;&lt;li class='v1MsoNormal'&gt;&lt;a href='mailto:tania@opexcg.com'&gt;tania@opexcg.com&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p Class='v1MsoNormal'&gt;&amp;nbsp;&lt;/p&gt;&lt;p Class='v1MsoNormal'&gt;Terima kasih.&lt;/p&gt;&lt;p Class='v1MsoNormal'&gt;&amp;nbsp;&lt;/p&gt;&lt;p Class='v1MsoNormal'&gt;Salam Sejahtera,&lt;/p&gt;&lt;p Class='v1MsoNormal'&gt;&amp;nbsp;&lt;/p&gt;&lt;p Class='v1MsoNormal'&gt;Opex Consulting Group&lt;/p&gt;&lt;p Class='v1MsoNormal'&gt;https://www.opexcg.com&lt;/p&gt;&lt;p Class='v1MsoNormal'&gt;&amp;nbsp;&lt;/p&gt;&lt;p Class='v1MsoNormal'&gt;&amp;nbsp;&lt;/p&gt;&lt;p Class='v1MsoNormal'&gt;==================&lt;/p&gt;&lt;p Class='v1MsoNormal'&gt;&amp;nbsp;&lt;/p&gt;&lt;p Class='v1MsoNormal'&gt;&amp;nbsp;&lt;/p&gt;&lt;div&gt;&lt;p Class='v1MsoNormal'&gt;&lt;span style='font-family: 'Calibri Light',sans-serif;'&gt;Best Regards,&lt;/span&gt;&lt;/p&gt;&lt;p Class='v1MsoNormal'&gt;&amp;nbsp;&lt;/p&gt;&lt;p Class='v1MsoNormal'&gt;Franklin Kurniawan&lt;/p&gt;&lt;p Class='v1MsoNormal'&gt;&lt;em&gt;&lt;span style='font-size: 10.0pt; color: #767171;'&gt;Managing Partner&lt;/span&gt;&lt;/em&gt;&lt;/p&gt;&lt;p Class='v1MsoNormal'&gt;&lt;strong&gt;&lt;span style='color: #00b0f0;'&gt;Opex Consulting Group&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;&lt;p Class='v1MsoNormal'&gt;&lt;span style='font-size: 10.0pt; color: #767171;'&gt;Singapore &amp;ndash; Indonesia&lt;/span&gt;&lt;/p&gt;&lt;p Class='v1MsoNormal'&gt;&lt;em&gt;&lt;span style='font-size: 4.0pt; font-family: 'Times New Roman',serif;'&gt;&amp;nbsp;&lt;/span&gt;&lt;/em&gt;&lt;/p&gt;&lt;p Class='v1MsoNormal'&gt;&lt;em&gt;&lt;span style='font-size: 8.0pt; font-family: 'Times New Roman',serif;'&gt;Industry 4.0 &amp;ndash; Operational Excellence &amp;ndash; People Development&lt;/span&gt;&lt;/em&gt;&lt;/p&gt;&lt;/div&gt;&lt;/html&gt;" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" Importance="Normal" IsBodyHtml="True" IsDraft="False" Sensitivity="Normal" Subject="Invitation to Mendix Webinar" To="[row(&quot;Email Address&quot;).ToString.Replace(&quot; &quot;,&quot;&quot;)]">
                             <ui:SendOutlookMail.Files>
                               <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
                             </ui:SendOutlookMail.Files>
                           </ui:SendOutlookMail>
+                          <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:Int32">[RowNumber]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:Int32">[EmailTable.Rows.IndexOf(row)+2]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <ui:ExcelWriteCell Cell="[&quot;H&quot;+RowNumber.ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_1" SheetName="Participant List" Text="Sent" />
+                          <ui:ExcelSaveWorkbook DisplayName="Save Workbook" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="ExcelSaveWorkbook_1" />
                         </Sequence>
                       </If.Else>
                     </If>
